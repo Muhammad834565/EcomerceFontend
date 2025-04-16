@@ -1,0 +1,136 @@
+<div class="div1">
+    <div class="main">
+      <div class="sidebar">
+  
+    <div class="filter-section">
+      <div class="filter-title" (click)="toggleSection('category-options', 'icon-category')">
+        Category <span class="toggle-icon" id="icon-category">&#9660;</span>
+      </div>
+      <div class="filter-options collapsed" id="category-options">
+        <label *ngFor="let category of categories">{{ category }}</label>
+        <div class="see-all" (click)="toggleSeeAll($event)">See all</div>
+      </div>
+    </div>
+  
+    <div class="filter-section">
+      <div class="filter-title" (click)="toggleSection('brand-options', 'icon-brands')">
+        Brands <span class="toggle-icon" id="icon-brands">&#9660;</span>
+      </div>
+      <div class="filter-options collapsed" id="brand-options">
+        <label *ngFor="let brand of brands"><input type="checkbox"> {{ brand }}</label>
+        <div class="see-all" (click)="toggleSeeAll($event)">See all</div>
+      </div>
+    </div>
+  
+    <div class="filter-section">
+      <div class="filter-title" (click)="toggleSection('feature-options', 'icon-features')">
+        Features <span class="toggle-icon" id="icon-features">&#9660;</span>
+      </div>
+      <div class="filter-options collapsed" id="feature-options">
+        <label *ngFor="let feature of features"><input type="checkbox"> {{ feature }}</label>
+        <div class="see-all" (click)="toggleSeeAll($event)">See all</div>
+      </div>
+    </div>
+  
+     <div class="filter-section" id="priceFilter">
+      <div class="filter-title" (click)="toggleSection('price-body', 'price-icon')">
+        Price range <span class="toggle-icon" id="price-icon">&#9660;</span>
+      </div>
+      <div class="price-body" id="price-body">
+        <div class="slider-container">
+          <div class="slider-track"></div>
+          <div class="slider-selected" #sliderSelected></div>
+          <input type="range" #minRange min="0" max="999999" value="0">
+          <input type="range" #maxRange min="0" max="999999" value="999999">
+        </div>
+        <div class="inputs">
+          <input type="number" #minInput min="0" max="999999">
+          <input type="number" #maxInput min="0" max="999999">
+        </div>
+        <button class="apply-btn" (click)="applyRange()">Apply</button>
+      </div>
+    </div>
+  
+    <div class="filter-section">
+      <div class="filter-title" (click)="toggleSection('condition-options', 'icon-condition')">
+        Condition <span class="toggle-icon" id="icon-condition">&#9660;</span>
+      </div>
+      <div class="filter-options collapsed" id="condition-options">
+        <label *ngFor="let condition of conditions"><input type="checkbox"> {{ condition }}</label>
+        <div class="see-all" (click)="toggleSeeAll($event)">See all</div>
+      </div>
+    </div>
+  
+    <div class="filter-section">
+      <div class="filter-title" (click)="toggleSection('rating-options', 'icon-ratings')">
+        Ratings <span class="toggle-icon" id="icon-ratings">&#9660;</span>
+      </div>
+      <div class="filter-options" id="rating-options">
+        <label class="rating-option" *ngFor="let rating of [5,4,3,2,1]" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
+          <i class="fas fa-star" [ngClass]="{'filled': rating >= 1, 'empty': rating < 1}"></i><i class="fas fa-star"  [ngClass]="{'filled': rating >= 2, 'empty': rating < 2}"></i><i class="fas fa-star"  [ngClass]="{'filled': rating >= 3, 'empty': rating < 3}"></i><i class="fas fa-star"  [ngClass]="{'filled': rating >= 4, 'empty': rating < 4}"></i><i class="fas fa-star"  [ngClass]="{'filled': rating >= 5, 'empty': rating < 5}"></i>
+        </div></label>
+      </div>
+    </div>
+  
+   
+  
+  </div>
+  
+  <div class="right sectio">
+  <div class="toolbar">
+    <div class="item-count">12,911 items in <b>Mobile accessory</b></div>
+    <div class="controls">
+      <label>
+        <input type="checkbox" />
+        Verified only
+      </label>
+      <select>
+        <option>Featured</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Newest</option>
+      </select>
+      <div class="view-icons">
+        <div class="view-icons">
+          <button class="icon-button " title="Grid view" >
+          <i class="fas fa-th-large"></i>
+        </button>
+      <button class="icon-button active" title="List view" >
+        <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="product-list">
+    
+    <div class="product" *ngFor="let product of products">
+      <img [src]="product.imageUrl" alt="product.name">
+      <div class="product-info">
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+        <h3>{{ product.name }}</h3>
+        <button class="like-btn" (click)="toggleLike($event)">
+          <i class="far fa-heart"></i>
+        </button></div>
+        <div>
+          <span class="price">${{ product.price.toFixed(2) }}</span>
+          <span class="old-price">${{ product.oldPrice.toFixed(2) }}</span>
+        </div>
+        <div>
+          <span class="stars">
+            <i class="fas fa-star" [ngClass]="{'filled': product.stars >= 1, 'empty': product.stars < 1}"></i><i class="fas fa-star"  [ngClass]="{'filled': product.stars >= 2, 'empty': product.stars < 2}"></i><i class="fas fa-star"  [ngClass]="{'filled': product.stars >= 3, 'empty': product.stars < 3}"></i><i class="fas fa-star"  [ngClass]="{'filled': product.stars >= 4, 'empty': product.stars < 4}"></i><i class="fas fa-star-half-alt"  [ngClass]="{'filled': product.stars >= 4.5, 'empty': product.stars < 4.5}"></i>
+          </span> {{ product.stars.toFixed(1) }} |
+          {{ product.orders }} orders
+          <span *ngIf="product.freeShipping" class="free-shipping">Free Shipping</span>
+        </div>
+        <p>{{ product.description }}</p>
+        <a href="#" class="details-link">View details</a>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  </div>
+  </div>
+  

@@ -1,0 +1,73 @@
+body {
+    max-width: 1200px;
+    margin: 0 auto; /* Added to center the body's content */
+    padding: 20px;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading */
+}
+
+/* Container for all supplier divs */
+.suppliers {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 20px; /* Adds space between items */
+    background-color: #E5E7EB; /* Gray 200 background */
+    padding: 10px;
+    border-radius: 8px;
+    justify-content: center; /* Added to center the supplier grid */
+}
+
+.supplier {
+    display: flex;
+    align-items: center; /* Aligns the image and paragraph vertically */
+    text-align: left;
+    width: 22%; /* Adjust width to ensure a reasonable number of items per row */
+    background-color: #E5E7EB; /* Gray 200 background */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 50px; /* Image width */
+    height: auto;
+    margin-right: 10px; /* Adds space between image and text */
+}
+
+p {
+    margin: 0;
+    color: black; /* Text color black for better contrast */
+}
+
+/* Color change for text after <br> tag */
+p br + span {
+    color: #8B96A5; /* Color after <br> tag */
+}
+
+/* Media query for small screens (e.g., mobile phones) */
+@media (max-width: 768px) {
+    .supplier {
+        width: 45%; /* Make each supplier take up half the width on small screens */
+        margin-bottom: 10px;
+    }
+     .suppliers{
+        gap: 10px;
+    }
+}
+
+/* Media query for very small screens (e.g., older phones) */
+@media (max-width: 480px) {
+    .supplier {
+        width: 100%; /* Make each supplier take up full width on very small screens */
+    }
+    img {
+        width: 40px;
+    }
+    p{
+        font-size: 14px;
+    }
+}

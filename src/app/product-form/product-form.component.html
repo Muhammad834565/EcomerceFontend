@@ -1,0 +1,25 @@
+<div class="form-container">
+    <form (ngSubmit)="submitForm()" #productForm="ngForm">
+      <div class="form-group" *ngFor="let field of fields">
+        <label [for]="field.name">{{ field.label }}</label>
+        <input
+          *ngIf="!field.textarea"
+          [type]="field.type"
+          [id]="field.name"
+          [(ngModel)]="product[field.name]"
+          [name]="field.name"
+          [required]="field.required"
+        />
+        <textarea
+          *ngIf="field.textarea"
+          [id]="field.name"
+          [(ngModel)]="product[field.name]"
+          [name]="field.name"
+          [required]="field.required"
+        ></textarea>
+      </div>
+  
+      <button type="submit" [disabled]="!productForm.form.valid">Submit</button>
+    </form>
+  </div>
+  

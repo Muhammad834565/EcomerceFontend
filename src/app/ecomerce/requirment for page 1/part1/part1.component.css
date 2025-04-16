@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    border: 2px solid #DEE2E7;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    height: auto; /* Changed height to auto */
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-section button {
+    font-size: 16px;
+    color: #4B5563;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.left-section button:hover {
+    background-color: #E5F1FF;
+    font-weight: bold;
+}
+
+/* Middle Section */
+.middle-section {
+    flex: 3;
+    background: url("/main11.png") center/cover no-repeat;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    min-height: 200px; /* Added a minimum height */
+  }
+  
+
+.text-content {
+    color: black;
+    max-width: 50%;
+    padding: 20px; /* Reduced padding */
+}
+
+h2 {
+    font-size: 24px; /* Reduced font size */
+    margin: 0;
+    font-weight: normal;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 16px; /* Reduced padding */
+    background: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px; /* Reduced font size */
+}
+
+/* Right Section */
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 300px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn {
+    display: block;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px; /* Reduced font size */
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-secondary {
+    border: #DEE2E7;
+    background: white;
+    color: #007bff;
+}
+
+.offer, .disabled {
+    padding: 15px; /* Reduced padding */
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px; /* Reduced font size */
+    display: block;
+}
+
+.offer {
+    background: #e67e22;
+    color: white;
+}
+
+.disabled {
+    background: #ccc;
+    color: white;
+}
+
+.login1 {
+    padding: 10px; /* Reduced padding */
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px; /* Reduced font size */
+    display: block;
+    background-color: #E3F0FF;
+}
+
+.login {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.login p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        width: 95%;
+    }
+    .left-section {
+        width: 100%;
+    }
+    .middle-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    .right-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    .text-content{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-section button {
+        font-size: 14px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .learn-more {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    .offer, .disabled, .login1{
+        font-size: 14px;
+        padding: 10px;
+    }
+    .btn{
+        font-size: 12px;
+        padding: 8px;
+    }
+}

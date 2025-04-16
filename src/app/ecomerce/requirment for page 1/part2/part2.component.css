@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 0;
+  background-color: white;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border: 2px solid #DEE2E7;
+  border-radius: 8px;
+
+}
+
+.grid-item {
+  border-right: 1px solid #DEE2E7;
+  border-bottom: 1px solid #DEE2E7;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 190px;
+}
+
+.deal {
+  align-items: flex-start;
+  min-width: 250px;
+}
+
+.deal h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.para {
+  color: #8B96A5;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.time-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.time-box {
+  background-color: #333333;
+  color: white;
+  padding: 3px 2px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.5;
+  min-width: 30px;
+  white-space: nowrap;
+}
+
+.image-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.image-item p {
+  background-color: #FFE3E3;
+  color: #EB001B;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.image-item h5 {
+  font-size: 14px;
+  color: #302e2e;
+  margin: 0;
+  text-align: center;
+  padding: 5px;
+}
+
+.image-item p {
+  margin-top: 0;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    overflow-x: auto;
+    height: auto;
+  }
+  .grid-item {
+    border-right: none;
+    width: 100%;
+  }
+  .time-container {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .deal {
+    min-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .deal h2 {
+    font-size: 16px;
+  }
+  .para {
+    font-size: 12px;
+  }
+  .time-box {
+    font-size: 8px;
+    padding: 2px 1px;
+    min-width: 25px;
+  }
+  .image-item img {
+    width: 80px;
+    height: 80px;
+  }
+  .image-item h5 {
+    font-size: 12px;
+  }
+  .image-item p {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}
